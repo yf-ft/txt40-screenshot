@@ -20,6 +20,7 @@ check_root() {
 create_target_dir() {
   if [ ! -d "$TARGET_DIR" ]; then
     mkdir -p "$TARGET_DIR"
+    chmod 755 "$TARGET_DIR"
   fi
 }
 
@@ -69,8 +70,12 @@ install_binary() {
   fi
 
   chmod +x "$TARGET_DIR/$BINARY_NAME"
+
   if [ "$EUID" -eq 0 ]; then
-    chmod u+s "$TARGET_DIR/$BINARY_NAME"
+    chown root:root "$TARGET_DIR/$BINARY_NAME"
+    chmod 4755 "$TARGET_DIR/$BINARY_NAME"
+  else
+    echo "Warning: Not running as root. The binary will not have root privileges."
   fi
 
   echo "Installation complete. You can now use '$BINARY_NAME'."
