@@ -1,0 +1,8 @@
+BasedOnStyle: LLVM
+AlignAfterOpenBracket: BlockIndent
+BinPackArguments: false
+BinPackParameters: false
+ColumnLimit: 100
+IndentWidth: 4
+PointerAlignment: Left
+ReferenceAlignment: Left

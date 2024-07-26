@@ -1,0 +1,16 @@
+Checks: >
+    bugprone*,
+    modernize*,
+    performance*,
+    readability*,
+    clang-analizer*,
+    cppcoreguidelines*,
+    misc*,
+    portability*,
+    cert*,
+    concurrency*,
+    hicpp*,
+    -readability-identifier-length
+
+CheckOptions:
+    - {key: misc-non-private-member-variables-in-classes.IgnoreClassesWithAllMemberVariablesBeingPublic, value: true}
